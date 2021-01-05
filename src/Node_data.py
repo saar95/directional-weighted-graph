@@ -1,11 +1,12 @@
 class Node_data:
 
-    def __init__(self, key, tag, info, pos):
+    def __init__(self, key, pos):
         self.key = key
-        self.tag = tag
-        self.info = info
+        self.tag = 0
+        self.weight = 999999
+        self.info = ""
         self.map = {}
-        if pos == None:
+        if pos is None:
             self.pos = Geo_location(0, 0, 0)
         else:
             self.pos = pos
@@ -31,8 +32,20 @@ class Node_data:
     def set_pos(self, pos):
         self.pos = pos
 
+    def set_weight(self, weight):
+        self.weight = weight
+
+    def get_weight(self):
+        return self.weight
+
     def connect(self, key, weight):
         self.map[key] = weight
+
+    def get_map(self):
+        return self.map
+
+    def __lt__(self, other):
+        return self.weight<other.weight
 
 
 class Geo_location:

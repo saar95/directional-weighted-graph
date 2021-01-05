@@ -22,7 +22,7 @@ class DiGraph:
 
     def add_node(self, node_id: int, pos: tuple = None) -> bool:
         if not self.nodes.__contains__(node_id):
-            node_temp = Node_data(node_id, 0, "", pos)
+            node_temp = Node_data(node_id, pos)
             self.nodes[node_id] = node_temp
             self.mode_count += 1
             return True
