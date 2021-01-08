@@ -1,4 +1,6 @@
-from Node_data import Node_data
+from random import random
+
+from Node_data import Node_data, Geo_location
 
 
 class DiGraph:
@@ -22,6 +24,8 @@ class DiGraph:
 
     def add_node(self, node_id: int, pos: tuple = None) -> bool:
         if not self.nodes.__contains__(node_id):
+            if pos is None:
+                pos = Geo_location(random() * 100, random() * 100, 0)
             node_temp = Node_data(node_id, pos)
             self.nodes[node_id] = node_temp
             self.mode_count += 1
@@ -32,6 +36,7 @@ class DiGraph:
         if self.nodes.__contains__(id1) and self.nodes.__contains__(id2):
             if not (self.nodes.get(id1)).map.__contains__(id2):
                 (self.nodes.get(id1)).connect(id2, weight)
+                self.edge_count += 1
                 return True
         return False
 
@@ -57,6 +62,8 @@ class DiGraph:
         return False
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
+        if self is None:
+            return True
         if node_id1 in self.nodes.keys() and node_id2 in self.nodes.keys():
             if (node_id2 in self.nodes.get(node_id1).map):
                 del self.nodes.get(node_id1).map[node_id2]
@@ -82,6 +89,6 @@ if __name__ == '__main__':
     print(graph.all_out_edges_of_node(0))
     print(graph.remove_node(1))
     print(graph.all_out_edges_of_node(1))
-    print(graph.remove_edge(0,7))
+    print(graph.remove_edge(0, 7))
 
 # print(graph.add_edge(0,1,5))
