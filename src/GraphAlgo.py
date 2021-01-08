@@ -68,7 +68,7 @@ class GraphAlgo:
                     pos_z = pos_list.pop(0)
                     pos=Geo_location(pos_x, pos_y, pos_z)
                 else:
-                    pos = Geo_location(random()*50, random()*50, 0)
+                    pos = Geo_location(random()*100, random()*100, 0)
                 new_graph_algo.get_graph().add_node(temp_node["id"], pos)
             for temp_edge in edges:
                 new_graph_algo.get_graph().add_edge(temp_edge["src"], temp_edge["dest"], temp_edge["w"])
