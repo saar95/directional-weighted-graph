@@ -77,6 +77,7 @@ class GraphAlgo:
         return False
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
+        self.res_info()
         if self.get_graph() is None:
             return float('inf'), []
         if id1 not in self.get_graph().get_all_v().keys() or id2 not in self.get_graph().get_all_v().keys():
@@ -187,6 +188,7 @@ class GraphAlgo:
                 connected_component.append(x)
         self.res_info()
         self = self.redirect()
+        connected_component.sort()
         return connected_component
 
     def connected_components(self) -> List[list]:
@@ -196,7 +198,8 @@ class GraphAlgo:
             return final_list
         for temp_node in self.get_graph().get_all_v().values():
             cc_list = self.connected_component(temp_node.get_key())
-            final_list.append(cc_list)
+            if cc_list not in final_list:
+                final_list.append(cc_list)
         return final_list
 
     def plot_graph(self) -> None:
@@ -244,6 +247,16 @@ if __name__ == '__main__':
     graph_algo.shortest_path(1, 4)
     b = graph_algo.connected_components()
     graph_algo.plot_graph()
+
+    # x=[]
+    # x.append(graph.get_all_v().get(5).get_key())
+    # x.append(graph.get_all_v().get(2).get_key())
+    # x.append(graph.get_all_v().get(3).get_key())
+    # x.append(graph.get_all_v().get(1).get_key())
+    # x.append(graph.get_all_v().get(4).get_key())
+    # print(x)
+    # x.sort()
+    # print(x)
 
     # graph_algo.save_to_json("test.txt")
     # graph_algo.load_from_json("test.txt")

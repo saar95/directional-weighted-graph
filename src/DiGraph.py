@@ -17,7 +17,13 @@ class DiGraph:
         return self.edgecount
 
     def get_all_v(self) -> dict:
-        return self.nodes;
+        get_v={}
+        a=self.nodes
+        b=self.nodes[0].get_key()
+        for temp_node in self.nodes.keys():
+            #get_v[temp_node]=len(self.nodes[temp_node].get_key())
+            get_v[temp_node] = "|edges out|",len(self.nodes[temp_node].get_map())
+        return get_v
 
     def get_mc(self) -> int:
         return self.mode_count
@@ -42,7 +48,11 @@ class DiGraph:
 
     def all_out_edges_of_node(self, id1: int) -> dict:
         if self.nodes.__contains__(id1):
-            return self.nodes.get(id1).map.keys()
+            temp_dict={}
+            for temp in self.get_all_v().get(id1).map.keys():
+                temp_dict[temp]=self.get_all_v().get(id1).map[temp]
+            return temp_dict
+            # return self.nodes.get(id1).map.keys()
 
     def all_in_edges_of_node(self, id1: int) -> dict:
         if self.nodes.__contains__(id1):
@@ -67,8 +77,12 @@ class DiGraph:
         if node_id1 in self.nodes.keys() and node_id2 in self.nodes.keys():
             if (node_id2 in self.nodes.get(node_id1).map):
                 del self.nodes.get(node_id1).map[node_id2]
+                self.edge_count-=1
                 return True
         return False
+
+    def __repr__(self):
+        return f'Graph: |V|={self.nodes.__len__()},|E|={self.edge_count}'
 
 
 if __name__ == '__main__':
@@ -90,5 +104,6 @@ if __name__ == '__main__':
     print(graph.remove_node(1))
     print(graph.all_out_edges_of_node(1))
     print(graph.remove_edge(0, 7))
+    print(graph)
 
 # print(graph.add_edge(0,1,5))
