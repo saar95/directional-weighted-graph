@@ -17,13 +17,15 @@ class DiGraph:
         return self.edgecount
 
     def get_all_v(self) -> dict:
-        get_v={}
-        a=self.nodes
-        b=self.nodes[0].get_key()
+        get_v = {}
+        a = self.nodes
+        b = self.nodes[0].get_key()
         for temp_node in self.nodes.keys():
-            #get_v[temp_node]=len(self.nodes[temp_node].get_key())
-            get_v[temp_node] = "|edges out|",len(self.nodes[temp_node].get_map())
+            get_v[temp_node] =str(temp_node)+": ""|edges out|"+" "+str(len(self.nodes[temp_node].get_map()))+" "+"|edges in|"+" "+str(len(self.all_in_edges_of_node(temp_node)))
         return get_v
+
+    def get_all_v_2(self):
+        return self.nodes
 
     def get_mc(self) -> int:
         return self.mode_count
@@ -49,8 +51,8 @@ class DiGraph:
     def all_out_edges_of_node(self, id1: int) -> dict:
         if self.nodes.__contains__(id1):
             temp_dict={}
-            for temp in self.get_all_v().get(id1).map.keys():
-                temp_dict[temp]=self.get_all_v().get(id1).map[temp]
+            for temp in self.get_all_v_2().get(id1).map.keys():
+                temp_dict[temp]=self.get_all_v_2().get(id1).map[temp]
             return temp_dict
             # return self.nodes.get(id1).map.keys()
 
