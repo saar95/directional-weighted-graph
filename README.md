@@ -47,7 +47,7 @@ You can find more information about **Directed Weighted Graph** [here](https://e
 | remove_edge|Removes an edge from the graph. |
 
 
-[create an anchor](#DiGraph-Methods:)
+[create an anchor](#DiGraph-Methods)
 
 ## GraphAlgo Methods
 |Name  | Description |
