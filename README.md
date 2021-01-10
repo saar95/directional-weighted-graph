@@ -1,4 +1,4 @@
-# Ex3
+## Ex3
 The third assignment in OPP course
 
 - Names: Saar Barel & Almog Reuveny.
