@@ -19,7 +19,7 @@ class DiGraph:
     """
 
     def e_size(self) -> int:
-        return self.edgecount
+        return self.edge_count
 
     """
     Returns the number of edges in this graph
