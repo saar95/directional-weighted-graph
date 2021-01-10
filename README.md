@@ -30,4 +30,5 @@ There are 3 parts to the task:
 ![image](https://user-images.githubusercontent.com/63556870/104122018-30b8c480-534b-11eb-93de-29bcbdf0b7fa.png)
 
 
-                                                                                                                            
+
+You can find more information about **Directed Weighted Graph** [here](https://en.wikipedia.org/wiki/Directed_graph).
