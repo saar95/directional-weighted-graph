@@ -126,7 +126,9 @@ class DiGraph:
             temp_dict = self.all_in_edges_of_node(node_id)
             for temp in temp_dict.keys():
                 self.remove_edge(temp, node_id)
+            count = len(self.all_out_edges_of_node(node_id))
             del self.nodes[node_id]
+            self.edge_count=self.edge_count - count
             self.mode_count += 1
             return True
         return False
