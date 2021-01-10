@@ -1,7 +1,7 @@
 # Ex3
 The third assignment in OPP course
 
-[AlmogHomo](## DiGraph Methods:)
+[AlmogHomo](#DiGraph Methods:)
 
 - Names: Saar Barel & Almog Reuveny.
 
