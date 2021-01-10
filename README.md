@@ -14,29 +14,11 @@ In this project, we used Dictionary,PraiorityQueue,List and Tuple.
 
 ## Structure
 
-### There are 3 parts to the task:
-**-The first part:** Represents a positive directional weighted graph.
+## DiGraph Class:
 
-* DiGraph: [DiGraph Methods:](#DiGraph-Methods)
+**Represents a positive directional weighted graph.** 
 
-* Node_data: 
-
-**-The second part:** Represents a Directed (positive) Weighted Graph Theory Algorithms.
-
-* GraphAlgo: [GraphAlgo Methods:](#GraphAlgo-Methods)
-
-**-The third part:** In this section you can see the results of the comparisons between Python, Java (our cod for Ex2) and NetworkX.
-
-The results show the running times and the differences between them.
-  
-  
-
-
-You can find more information about **Directed Weighted Graph** [here](https://en.wikipedia.org/wiki/Directed_graph).
-
-
-
-## DiGraph Methods:
+### DiGraph Methods:
 |Name  | Description |
 |--|--|
 | v_size |Returns the number of vertices in this graph |
@@ -51,9 +33,12 @@ You can find more information about **Directed Weighted Graph** [here](https://e
 | remove_edge|Removes an edge from the graph. |
 
 
+## GraphAlgo Class:
 
+**Represents a Directed (positive) Weighted Graph Theory Algorithms.** 
 
-## GraphAlgo Methods:
+### GraphAlgo Methods:
+
 |Name  | Description |
 |--|--|
 | get_graph|Return the directed graph on which the algorithm works on. |
@@ -63,3 +48,23 @@ You can find more information about **Directed Weighted Graph** [here](https://e
 | connected_component|Finds the Strongly Connected Component(SCC) that node id1 is a part of. |
 | connected_components|Finds all the Strongly Connected Component(SCC) in the graph.  |
 | plot_graph|Drawing the graph using [matplot.lib](https://matplotlib.org/). |
+
+
+
+
+**-The third part:** In this section you can see the results of the comparisons between Python, Java (our cod for Ex2) and NetworkX.
+
+The results show the running times and the differences between them.
+  
+  
+
+
+You can find more information about **Directed Weighted Graph** [here](https://en.wikipedia.org/wiki/Directed_graph).
+
+
+
+* GraphAlgo: [GraphAlgo Methods:](#GraphAlgo-Methods)
+
+
+
+
