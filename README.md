@@ -24,6 +24,15 @@ There are 3 parts to the task:
  -The third part: In this section you can see the results of the comparisons between Python, Java (our cod for Ex2) and NetworkX. 
 
   The results show the running times and the differences between them.
+  
+  
+  
+  # Ex3
+The third assignment in OPP course.
+
+**Names: Saar Barel & Almog Reuveny.**
+
+In this assignment, we built a directional weighted graph in Python.
 
 
                                                                                                                             
