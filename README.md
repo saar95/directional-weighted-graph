@@ -50,20 +50,22 @@ In this project, we used Dictionary,PraiorityQueue,List and Tuple.
 | plot_graph|Drawing the graph using [matplot.lib](https://matplotlib.org/). |
 
 
+## NodeData Class:
 
+**Represents a vertex in the graph.** 
 
-**-The third part:** In this section you can see the results of the comparisons between Python, Java (our cod for Ex2) and NetworkX.
+### NodeData methods:
 
-The results show the running times and the differences between them.
-  
-  
+|Name  | Description |
+|--|--|
+| get_key|Return the key of the node (vertex) every node has a uniqe key. |
+| get_pos|Retuns the Geo Location (x,y,z) of the node.|
+| connect|Connect an edge between 2 nodes with the given wieght. |
+| get_map|Returns a dictionary of all the edges connected to the node.   |
 
 
 You can find more information about **Directed Weighted Graph** [here](https://en.wikipedia.org/wiki/Directed_graph).
 
-
-
-* GraphAlgo: [GraphAlgo Methods:](#GraphAlgo-Methods)
 
 
 
