@@ -12,7 +12,7 @@ Example:
 
 In this project, we used Dictionary,PraiorityQueue,List and Tuple.
 
-## Structure
+# Structure
 
 ## DiGraph Class:
 
