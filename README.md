@@ -1,10 +1,6 @@
 # Ex3
 The third assignment in OPP course
 
-[DiGraph Methods:](#DiGraph-Methods)
-
-[GraphAlgo Methods:](#GraphAlgo-Methods)
-
 - Names: Saar Barel & Almog Reuveny.
 
 In this assignment we built a directional weighted graph in Python
@@ -13,21 +9,25 @@ Example:
 
 ![image](https://user-images.githubusercontent.com/63556870/104121082-68703e00-5344-11eb-9a0f-8ddaf7daf322.png)
 
-There are 3 parts to the task:
 
--The first part: Represents a positive directional weighted graph.
+In this project, we used Dictionary,PraiorityQueue,List and Tuple.
 
- -DiGraph: Represents a positive directional weighted graph.
- 
- -Node_data: Represents a Node and his attributes-key,tag,weight,info,map.
- 
--The second part: 
+## Structure
 
- -GraphAlgo: Represents a Directed (positive) Weighted Graph Theory Algorithms.
- 
- -The third part: In this section you can see the results of the comparisons between Python, Java (our cod for Ex2) and NetworkX. 
+### There are 3 parts to the task:
+**-The first part:** Represents a positive directional weighted graph.
 
-  The results show the running times and the differences between them.
+* DiGraph: [DiGraph Methods:](#DiGraph-Methods)
+
+* Node_data: 
+
+**-The second part:** Represents a Directed (positive) Weighted Graph Theory Algorithms.
+
+* GraphAlgo: [GraphAlgo Methods:](#GraphAlgo-Methods)
+
+**-The third part:** In this section you can see the results of the comparisons between Python, Java (our cod for Ex2) and NetworkX.
+
+The results show the running times and the differences between them.
   
   
 
