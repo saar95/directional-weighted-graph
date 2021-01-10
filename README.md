@@ -1,4 +1,4 @@
-## Ex3
+# Ex3
 The third assignment in OPP course
 
 - Names: Saar Barel & Almog Reuveny.
@@ -47,7 +47,7 @@ You can find more information about **Directed Weighted Graph** [here](https://e
 | remove_edge|Removes an edge from the graph. |
 
 
-[create an anchor](#ex3)
+[create an anchor](#digraph-methods:)
 
 ## GraphAlgo Methods
 |Name  | Description |
