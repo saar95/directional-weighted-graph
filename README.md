@@ -20,6 +20,10 @@ There are 3 parts to the task:
 -The second part: 
 
  -GraphAlgo: Represents a Directed (positive) Weighted Graph Theory Algorithms.
+ 
+ -The third part: In this section you can see the results of the comparisons between Python, Java (our cod for Ex2) and NetworkX. 
+
+  The results show the running times and the differences between them.
 
 
                                                                                                                             
