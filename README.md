@@ -1,6 +1,10 @@
 # Ex3
 The third assignment in OPP course
 
+[DiGraph Methods:](#DiGraph-Methods)
+
+[GraphAlgo Methods:](#GraphAlgo-Methods)
+
 - Names: Saar Barel & Almog Reuveny.
 
 In this assignment we built a directional weighted graph in Python
@@ -47,9 +51,9 @@ You can find more information about **Directed Weighted Graph** [here](https://e
 | remove_edge|Removes an edge from the graph. |
 
 
-[create an anchor](#DiGraph-Methods)
 
-## GraphAlgo Methods
+
+## GraphAlgo Methods:
 |Name  | Description |
 |--|--|
 | get_graph|Return the directed graph on which the algorithm works on. |
