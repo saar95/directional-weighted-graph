@@ -69,6 +69,8 @@ Example:
 
 You can find more information about **Directed Weighted Graph** [here](https://en.wikipedia.org/wiki/Directed_graph).
 
+  ![image](https://user-images.githubusercontent.com/63556870/104126874-b5b1d700-5367-11eb-9702-91638351dcb7.png)
+
 
 
 
