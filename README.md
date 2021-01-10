@@ -32,3 +32,33 @@ There are 3 parts to the task:
 
 
 You can find more information about **Directed Weighted Graph** [here](https://en.wikipedia.org/wiki/Directed_graph).
+
+
+
+## DiGraph Methods:
+|Name  | Description |
+|--|--|
+| v_size |Returns the number of vertices in this graph |
+| e_size|Returns the number of edges in this graph |
+| get_all_v|Return a dictionary of all the nodes in the Graph (node_id:node_data)
+| all_in_edges_of_node|Return a dictionary of all the nodes connected to (into) node_id |
+| all_out_edges_of_node |Return a dictionary of all the nodes connected from node_id |
+| get_mc| Returns a counter for every action performed on the graph
+| add_edge|Adds an edge to the graph.  |
+| add_node|Adds a node to the graph. |
+| remove_node|Removes a node from the graph. |
+| remove_edge|Removes an edge from the graph. |
+
+
+
+
+## GraphAlgo Methods
+|Name  | Description |
+|--|--|
+| get_graph|Return the directed graph on which the algorithm works on. |
+| load_from_json|Loads a graph from a json file. |
+| save_to_json|Saves the graph in JSON format to a file.|
+| shortest_path|Returns the shortest path from node id1 to node id2 using [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm). |
+| connected_component|Finds the Strongly Connected Component(SCC) that node id1 is a part of. |
+| connected_components|Finds all the Strongly Connected Component(SCC) in the graph.  |
+| plot_graph|Drawing the graph using [matplot.lib](https://matplotlib.org/). |
