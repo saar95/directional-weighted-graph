@@ -1,3 +1,5 @@
+import time
+
 from DiGraph import DiGraph
 from GraphAlgo import GraphAlgo
 
@@ -57,10 +59,23 @@ def check1():
     file = "../data/T0.json"
     g_algo.load_from_json(file)  # init a GraphAlgo from a json file
     print(g_algo.connected_components())
+    # start_time = time.perf_counter()
+    # a=g_algo.shortest_path(0, 7584)
+    # end_time = time.perf_counter()
+    # print(end_time-start_time)
+    # start_time = time.perf_counter()
+    # b=g_algo.connected_component(0)
+    # end_time = time.perf_counter()
+    # print(end_time-start_time)
+    # start_time = time.perf_counter()
+    # b=g_algo.connected_components()
+    # end_time = time.perf_counter()
+    # print(end_time-start_time)
     print(g_algo.shortest_path(0, 3))
     print(g_algo.shortest_path(3, 1))
     g_algo.save_to_json(file + '_saved')
     g_algo.plot_graph()
+
 
 
 def check2():
@@ -70,6 +85,10 @@ def check2():
     g_algo = GraphAlgo()
     file = '../data/A5'
     g_algo.load_from_json(file)
+    # start_time=time.perf_counter()
+    # a,b=g_algo.shortest_path(1,5)
+    # end_time=time.perf_counter()
+    # print(end_time-start_time)
     g_algo.get_graph().remove_edge(13, 14)
     g_algo.save_to_json(file + "_edited")
     dist, path = g_algo.shortest_path(1, 7)

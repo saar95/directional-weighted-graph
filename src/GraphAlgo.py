@@ -49,8 +49,14 @@ class GraphAlgo:
             return True
         return False
 
+    """
+    This method save the directed weighted graph to a file with the given name
+    The graph will be saved in specific JSON format
+    @param file_name - the file name (may include a relative path).
+    @return True if the save succeed, else False
+     """
+
     def load_from_json(self, file_name: str) -> bool:
-        i = 0
         with open(file_name) as json_file:
             final_dict = json.load(json_file)
             edges = []
@@ -75,6 +81,13 @@ class GraphAlgo:
             self.set_graph(new_graph)
             return True
         return False
+
+    """"
+    This method build a new graph from the given file_name (JSON file)
+    If the the node don't have position in the JSON file, the method will gave them random position.
+    @param file_name the file name (may include a relative path).
+    @return True if the load succeed, else False
+    """
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
         self.res_info()
@@ -120,11 +133,28 @@ class GraphAlgo:
         self.res_info()
         return short_path
 
+    """
+    This method run over all the nodes connected between from src to dest (-->) and all their neighbors and changing the tags of the nodes according to this calculation:
+    my tag = my neighbor's smallest tag+the edge between me and my neighbor.
+    The calculation using PriorityQueue to find the lowest weight neighbor.
+    Then turn the graph over and run it again from the end to the beginning to find the list
+    If there is no path between 2 given nodes return (float('inf'),[])
+    @param id1: The start node id
+    @param id2: The end node id
+    @return: The distance of the shortest path, a list of the nodes ids that the path goes through, if there is no
+    path return (float('inf'),[])
+    """
+
     def res_info(self):
         for temp_node in self.get_graph().get_all_v_2().values():
             temp_node.set_info("")
             temp_node.set_weight(999999)
             temp_node.set_tag(0)
+
+    """
+    This method run over all the nodes in the given graph
+    resets all the node date including tag,info and weight.
+    """
 
     def list_maker(self, src, short_path_list):
         for temp_edge in self.get_graph().all_out_edges_of_node(src.get_key()):
@@ -149,6 +179,12 @@ class GraphAlgo:
                 new_weight = self.get_graph().get_all_v_2().get(temp_node.get_key()).get_map().get(temp_edge)
                 new_graph_algo.get_graph().add_edge(temp_edge, temp_node.get_key(), new_weight)
         return new_graph_algo
+
+    """
+    This method create a new copy of the given graph but reversed
+    mean all the edges are reversed.
+    @return reversed copy of directed_weighted_graph
+    """
 
     def connected_component(self, id1: int) -> list:
         self.res_info()
@@ -191,6 +227,16 @@ class GraphAlgo:
         connected_component.sort()
         return connected_component
 
+    """
+    This method starts at the first node in the graph, changes his tag to 0 than move all over his neighbors and 
+    changes their tags to 0 and so on till the last node in the graph and add them to a list. 
+    Then the method resets all the nodes tag and turns all the edges in the graph using redirect function.
+    And run again from the same node, changing all his neighbors tag to 0 and so on and add them to another list.
+    Finally we loop through the lists, the binding component will consist of the nodes in both lists.
+    @param id1: The node key
+    @return: The list of nodes in the SCC
+    """
+
     def connected_components(self) -> List[list]:
         final_list = []
         cc_list = []
@@ -201,6 +247,11 @@ class GraphAlgo:
             if cc_list not in final_list:
                 final_list.append(cc_list)
         return final_list
+
+    """
+    Call connected_component function for each node in the graph.
+    @return: The list of all SCC in the graph
+    """
 
     def plot_graph(self) -> None:
         node_id=[]
@@ -227,36 +278,8 @@ class GraphAlgo:
         ax.set_title("Ex3 - Directed Wighted Graph")
         plt.show()
 
+        """
+        This method drawing the graph using matplotlib, this method collects all the nodes and edges data
+        (Geo location and keys) and drawing them.
+        """
 
-if __name__ == '__main__':
-    graph = DiGraph()
-    graph.add_node(1)
-    graph.add_node(2)
-    graph.add_node(3)
-    graph.add_node(4)
-    graph.add_node(5)
-    graph.add_edge(5, 4, 1)
-    graph.add_edge(4, 5, 1)
-    print(graph.add_edge(1, 2, 88))
-    print(graph.add_edge(2, 4, 6))
-    print(graph.add_edge(4, 2, 9))
-    print(graph.add_edge(4, 1, 12))
-    print(graph.add_edge(1, 3, 4))
-    print(graph.add_edge(3, 2, 1))
-    graph_algo = GraphAlgo(graph)
-    graph_algo.shortest_path(1, 4)
-    b = graph_algo.connected_components()
-    graph_algo.plot_graph()
-
-    # x=[]
-    # x.append(graph.get_all_v().get(5).get_key())
-    # x.append(graph.get_all_v().get(2).get_key())
-    # x.append(graph.get_all_v().get(3).get_key())
-    # x.append(graph.get_all_v().get(1).get_key())
-    # x.append(graph.get_all_v().get(4).get_key())
-    # print(x)
-    # x.sort()
-    # print(x)
-
-    # graph_algo.save_to_json("test.txt")
-    # graph_algo.load_from_json("test.txt")
