@@ -27,12 +27,7 @@ There are 3 parts to the task:
   
   
   
-  # Ex3
-The third assignment in OPP course.
-
-**Names: Saar Barel & Almog Reuveny.**
-
-In this assignment, we built a directional weighted graph in Python.
+![image](https://user-images.githubusercontent.com/63556870/104122018-30b8c480-534b-11eb-93de-29bcbdf0b7fa.png)
 
 
                                                                                                                             
