@@ -1,5 +1,9 @@
 class Node_data:
-
+    """
+    This class represents vertex in graph using node data structure.
+    Node has some useful data as key,tag,weight,info,pos and map for all his neighbours
+    each node has unique key.
+    """
     def __init__(self, key, pos):
         self.key = key
         self.tag = 0

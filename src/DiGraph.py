@@ -2,6 +2,9 @@ from random import random
 
 from Node_data import Node_data, Geo_location
 
+"""
+Represents a positive directional weighted graph.
+"""
 
 class DiGraph:
 
@@ -75,10 +78,11 @@ class DiGraph:
     def add_edge(self, id1: int, id2: int, weight: float) -> bool:
         if self.nodes.__contains__(id1) and self.nodes.__contains__(id2):
             if not (self.nodes.get(id1)).map.__contains__(id2):
-                (self.nodes.get(id1)).connect(id2, weight)
-                self.edge_count += 1
-                self.mode_count += 1
-                return True
+                if id1 != id2:
+                    (self.nodes.get(id1)).connect(id2, weight)
+                    self.edge_count += 1
+                    self.mode_count += 1
+                    return True
         return False
 
     """

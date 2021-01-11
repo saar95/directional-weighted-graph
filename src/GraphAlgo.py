@@ -9,6 +9,7 @@ from queue import Queue
 
 from Node_data import Geo_location
 
+"""This  class represents a Directed (positive) Weighted Graph Theory Algorithms"""
 
 class GraphAlgo:
     def __init__(self, graph=None):
@@ -67,14 +68,14 @@ class GraphAlgo:
             new_graph_algo = GraphAlgo(new_graph)
             for temp_node in nodes:
                 if len(temp_node) == 2:
-                    str=temp_node["pos"]
-                    pos_list=str.split(",")
-                    pos_x=pos_list.pop(0)
+                    str = temp_node["pos"]
+                    pos_list = str.split(",")
+                    pos_x = pos_list.pop(0)
                     pos_y = pos_list.pop(0)
                     pos_z = pos_list.pop(0)
-                    pos=Geo_location(pos_x, pos_y, pos_z)
+                    pos = Geo_location(pos_x, pos_y, pos_z)
                 else:
-                    pos = Geo_location(random()*50, random()*50, 0)
+                    pos = Geo_location(random() * 50, random() * 50, 0)
                 new_graph_algo.get_graph().add_node(temp_node["id"], pos)
             for temp_edge in edges:
                 new_graph_algo.get_graph().add_edge(temp_edge["src"], temp_edge["dest"], temp_edge["w"])
@@ -133,16 +134,12 @@ class GraphAlgo:
         self.res_info()
         return short_path
 
-    """
-    This method run over all the nodes connected between from src to dest (-->) and all their neighbors and changing the tags of the nodes according to this calculation:
-    my tag = my neighbor's smallest tag+the edge between me and my neighbor.
-    The calculation using PriorityQueue to find the lowest weight neighbor.
-    Then turn the graph over and run it again from the end to the beginning to find the list
-    If there is no path between 2 given nodes return (float('inf'),[])
-    @param id1: The start node id
-    @param id2: The end node id
-    @return: The distance of the shortest path, a list of the nodes ids that the path goes through, if there is no
-    path return (float('inf'),[])
+    """This method run over all the nodes connected between from src to dest (-->) and all their neighbors and 
+    changing the tags of the nodes according to this calculation: my tag = my neighbor's smallest tag+the edge 
+    between me and my neighbor. The calculation using PriorityQueue to find the lowest weight neighbor. Then turn the 
+    graph over and run it again from the end to the beginning to find the list If there is no path between 2 given 
+    nodes return (float('inf'),[]) @param id1: The start node id @param id2: The end node id @return: The distance of 
+    the shortest path, a list of the nodes ids that the path goes through, if there is no path return (float('inf'),[]) 
     """
 
     def res_info(self):
@@ -243,9 +240,13 @@ class GraphAlgo:
         if self.get_graph() is None:
             return final_list
         for temp_node in self.get_graph().get_all_v_2().values():
-            cc_list = self.connected_component(temp_node.get_key())
-            if cc_list not in final_list:
-                final_list.append(cc_list)
+            if temp_node.get_tag() != 1:
+                cc_list = self.connected_component(temp_node.get_key())
+                for temp in cc_list:
+                    self.get_graph().get_all_v_2().get(temp).set_tag(1)
+                if cc_list not in final_list:
+                    final_list.append(cc_list)
+        self.res_info()
         return final_list
 
     """
@@ -254,25 +255,26 @@ class GraphAlgo:
     """
 
     def plot_graph(self) -> None:
-        node_id=[]
-        node_x=[]
-        node_y=[]
+        node_id = []
+        node_x = []
+        node_y = []
         for temp_node in self.get_graph().get_all_v_2().values():
             node_id.append(temp_node.get_key())
             node_x.append(temp_node.get_pos().get_x())
             node_y.append(temp_node.get_pos().get_y())
         fig, ax = plt.subplots()
-        ax.scatter(node_x, node_y,140,"blue")
+        ax.scatter(node_x, node_y, 140, "blue")
         for temp_node in self.get_graph().get_all_v_2().values():
             for temp_edge in self.get_graph().all_out_edges_of_node(temp_node.get_key()):
-                temp_edge=self.get_graph().get_all_v_2().get(temp_edge)
-                src =(temp_node.get_pos().get_x(),temp_node.get_pos().get_y())
-                dest=(temp_edge.get_pos().get_x(),temp_edge.get_pos().get_y())
-                plt.annotate("",dest,src, arrowprops=dict(facecolor='red',edgecolor="red", width=0.3,headwidth=2.5, shrink=0.028),
-            horizontalalignment='right', verticalalignment='top',
-            )
-        for i, txt in enumerate(node_id): #text=nodeid i=index
-            ax.annotate(txt, (node_x[i] + 0.8,node_y[i] + 0.8),color="black")
+                temp_edge = self.get_graph().get_all_v_2().get(temp_edge)
+                src = (temp_node.get_pos().get_x(), temp_node.get_pos().get_y())
+                dest = (temp_edge.get_pos().get_x(), temp_edge.get_pos().get_y())
+                plt.annotate("", dest, src,
+                             arrowprops=dict(facecolor='red', edgecolor="red", width=0.3, headwidth=2.5, shrink=0.028),
+                             horizontalalignment='right', verticalalignment='top',
+                             )
+        for i, txt in enumerate(node_id):  # text=nodeid i=index
+            ax.annotate(txt, (node_x[i] + 0.8, node_y[i] + 0.8), color="black")
         plt.xlabel("X Axis")
         plt.ylabel("Y Axis")
         ax.set_title("Ex3 - Directed Wighted Graph")
@@ -282,4 +284,3 @@ class GraphAlgo:
         This method drawing the graph using matplotlib, this method collects all the nodes and edges data
         (Geo location and keys) and drawing them.
         """
-
