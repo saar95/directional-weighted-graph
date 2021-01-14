@@ -64,7 +64,7 @@ Example:
 | connect|Connect an edge between 2 nodes with the given wieght. |
 | get_map|Returns a dictionary of all the edges connected to the node.   |
 
-### In addition to this project we built a comparison system that compares implementations of a directional weighted graph graphs in different programing languages (java,python and more), you can see the results on the WIKI page
+#### In addition to this project we built a comparison system that compares implementations of a directional weighted graph graphs in different programing languages (java,python and more), you can see the results on the WIKI page
 
 
 You can find more information about **Directed Weighted Graph** [here](https://en.wikipedia.org/wiki/Directed_graph).
